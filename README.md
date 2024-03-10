@@ -6,6 +6,7 @@ Virtual Meet is a video conferencing application.
 
 Frontend:
 
+- Vite: Build tool for modern web development
 - React.js: JavaScript library for building user interfaces
 - WebRTC: Real-time communication protocol for video conferencing
 - Socket.IO: Real-time bidirectional event-based communication library
