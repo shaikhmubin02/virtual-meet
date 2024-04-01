@@ -11,6 +11,7 @@ import {
 } from '@stream-io/video-react-sdk';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Users, LayoutList } from 'lucide-react';
+import { useToast } from "@/components/ui/use-toast";
 
 import {
   DropdownMenu,
@@ -22,6 +23,8 @@ import {
 import Loader from './Loader';
 import EndCallButton from './EndCallButton';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
+import { useUser } from '@clerk/nextjs';
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
@@ -32,6 +35,10 @@ const MeetingRoom = () => {
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
   const [showParticipants, setShowParticipants] = useState(false);
   const { useCallCallingState } = useCallStateHooks();
+  const { toast } = useToast();
+  const { user } = useUser();
+  const meetingId = user?.id;
+  const meetingLink = `https://${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
 
   // for more detail about types of CallingState see: https://getstream.io/video/docs/react/ui-cookbook/ringing-call/#incoming-call-panel
   const callingState = useCallCallingState();
@@ -94,6 +101,17 @@ const MeetingRoom = () => {
             <Users size={20} className="text-white" />
           </div>
         </button>
+        <Button
+          className="bg-dark-3"
+          onClick={() => {
+            navigator.clipboard.writeText(meetingLink);
+            toast({
+              title: "Link Copied",
+            });
+          }}
+        >
+          Share
+        </Button>
         {!isPersonalRoom && <EndCallButton />}
       </div>
     </section>
