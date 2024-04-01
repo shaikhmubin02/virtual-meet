@@ -27,10 +27,10 @@ const MobileNav = () => {
          bg-dark-1">
             <Link href="/" className='flex items-center gap-1'>
               <Image 
-              src="/icons/logo.svg" 
+              src="/icons/vm-logo.png" 
               width={32}
               height={32}
-              alt="Yoom logo"  
+              alt="vm logo"  
               className="max-sm:size-10" 
               />
               <p className='text-[26px] font-extrabold
