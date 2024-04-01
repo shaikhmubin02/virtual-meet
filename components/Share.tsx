@@ -10,7 +10,7 @@ const Share = () => {
 
   return (
     <Button
-          className="bg-dark-3"
+          className= "cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]"
           onClick={() => {
             navigator.clipboard.writeText(meetingLink);
             toast({
