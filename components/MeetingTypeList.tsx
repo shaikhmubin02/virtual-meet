@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import HomeCard from './HomeCard';
-import MeetingModal from './MeetingModal';
+import MeetingModal from './MeetingModel';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
@@ -41,7 +41,8 @@ const MeetingTypeList = () => {
       const id = crypto.randomUUID();
       const call = client.call('default', id);
       if (!call) throw new Error('Failed to create meeting');
-      const startsAt = values.dateTime.toISOString() || new Date(Date.now()).toISOString();
+      const startsAt =
+        values.dateTime.toISOString() || new Date(Date.now()).toISOString();
       const description = values.description || 'Instant Meeting';
       await call.getOrCreate({
         data: {

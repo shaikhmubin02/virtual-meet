@@ -13,8 +13,7 @@ import { Button } from './ui/button';
 const MeetingSetup = ({
   setIsSetupComplete,
 }: {
-  setIsSetupComplete: (value: boolean) => void;
-}) => {
+  setIsSetupComplete: (value: boolean) => void }) => {
   // https://getstream.io/video/docs/react/guides/call-and-participant-state/#call-state
   const { useCallEndedAt, useCallStartsAt } = useCallStateHooks();
   const callStartsAt = useCallStartsAt();
