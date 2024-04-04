@@ -1,22 +1,32 @@
+'use client'
+
 import MeetingTypeList from '@/components/MeetingTypeList';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
   
-  const now = new Date();
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
 
-  const timeFormatter = new Intl.DateTimeFormat('en-IN', { 
-    timeZone: 'Asia/Kolkata',
-    hour: '2-digit', 
-    minute: '2-digit' 
-  });
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      const now = new Date();
+      const timeFormatter = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      const dateFormatter = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        dateStyle: 'full'
+      });
 
-  const dateFormatter = new Intl.DateTimeFormat('en-IN', {
-    timeZone: 'Asia/Kolkata',
-    dateStyle: 'full' 
-  });
+      setTime(timeFormatter.format(now));
+      setDate(dateFormatter.format(now));
+    }, 1000);
 
-  const time = timeFormatter.format(now);
-  const date = dateFormatter.format(now);
+    return () => clearInterval(timerID);
+  }, []);
 
   return (
     <section className='flex size-full flex-row gap-10 text-white '>
