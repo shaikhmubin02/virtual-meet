@@ -11,13 +11,14 @@ const Home = () => {
   useEffect(() => {
     const timerID = setInterval(() => {
       const now = new Date();
-      const timeFormatter = new Intl.DateTimeFormat('en-IN', {
-        timeZone: 'Asia/Kolkata',
+      const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const timeFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: userTimeZone,
         hour: '2-digit',
         minute: '2-digit'
       });
-      const dateFormatter = new Intl.DateTimeFormat('en-IN', {
-        timeZone: 'Asia/Kolkata',
+      const dateFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: userTimeZone,
         dateStyle: 'full'
       });
 
