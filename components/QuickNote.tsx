@@ -25,7 +25,7 @@ const QuickNote = () => {
     <div>
       <textarea
         rows={10}
-        cols={67}
+        cols={56}
         value={note}
         onChange={handleChange}
         placeholder="Quick notes..."

@@ -32,8 +32,8 @@ const Home = () => {
   }, []);
 
   return (
-    <section className='flex size-full flex-row gap-10 text-white '>
-        <div className='h-[300px] w-[600px] rounded-[20px] bg-hero bg-cover'>
+    <section className='flex size-full flex-row gap-16 text-white '>
+        <div className='h-[260px] w-[500px] rounded-[20px] bg-hero bg-cover'>
           <div className='flex h-full flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11'>
             { <Upcomingdate type="upcoming"/> }
             <div className='flex flex-col gap-2'>
@@ -41,7 +41,7 @@ const Home = () => {
               <p className='text-lg font-medium text-sky-1 lg:text2pxl'>{date}</p>
             </div>
           </div>
-          <div className='h-[250px] w-[600px] bg-white bg-cover flex flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11 rounded-bl-[20px] rounded-br-[20px] mt-[-17px]'>
+          <div className='h-[252px] w-[500px] bg-white bg-cover flex flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11 rounded-bl-[20px] rounded-br-[20px] mt-[-17px]'>
             <QuickNote />
           </div>
         </div>
