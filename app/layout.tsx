@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Virtual Meet",
   description: "Video calling App",
   icons: {
-    icon: "/icons/logo.svg",
+    icon: "./favicon.ico",
   },
 };
 
