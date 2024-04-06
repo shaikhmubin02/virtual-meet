@@ -1,6 +1,7 @@
 'use client'
 
 import MeetingTypeList from '@/components/MeetingTypeList';
+import QuickNote from '@/components/QuickNote';
 import Upcomingdate from '@/components/Upcomingdate';
 import { useEffect, useState } from 'react';
 
@@ -36,9 +37,12 @@ const Home = () => {
           <div className='flex h-full flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11'>
             { <Upcomingdate type="upcoming"/> }
             <div className='flex flex-col gap-2'>
-              <h1 className='text-4xl font-extrabold lg:text-7xl'>{time}</h1>
+              <h1 className='text-4xl font-noraml lg:text-6xl'>{time}</h1>
               <p className='text-lg font-medium text-sky-1 lg:text2pxl'>{date}</p>
             </div>
+          </div>
+          <div className='h-[250px] w-[600px] bg-white bg-cover flex flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11 rounded-bl-[20px] rounded-br-[20px] mt-[-17px]'>
+            <QuickNote />
           </div>
         </div>
         <MeetingTypeList />
